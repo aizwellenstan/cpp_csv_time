@@ -43,6 +43,9 @@ void write_csv(std::vector<std::vector<std::string>>& ct,
   for (std::vector<std::string>& v : ct) {
     for (std::size_t i = 0; i < v.size(); i++) {
       ofs << v.at(i);
+      
+      // if col2 is zero skip row
+      if (v.at(1) == "0") break;
       if (i < v.size() - 1) {
         ofs << ",";
       }
@@ -70,7 +73,7 @@ int main(int argc, char* argv[])
   }
  
   read_csv(ct, in_csv);
-  print_csv(ct);
+  // print_csv(ct);
   write_csv(ct, out_csv);
  
   return 0;
