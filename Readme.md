@@ -1,8 +1,15 @@
+# How It Works
+skip the row with specify data
+edit here [csv.cpp](./Csv/csv.cpp) line 50
+
+# How To Use
+rename the csv file to in.csv
+put the csv file in the data folder
+will output out.csv under the data folder
+
 ```
-mkdir -p out/build
-cmake -S . -B out/build
-cd out/build
-make
+sh build.sh
+sh run.sh
 ```
 
 #DEBUG

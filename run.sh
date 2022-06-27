@@ -1,1 +1,1 @@
-./out/build/Cmake in.csv out.csv
+./out/build/Cmake data/in.csv data/out.csv
