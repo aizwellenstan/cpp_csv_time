@@ -1,6 +1,6 @@
 # How It Works
 skip the row with specify data
-edit here [csv.cpp](./Csv/csv.cpp) line 50
+edit [csv.cpp](./Csv/csv.cpp) line 50
 
 # How To Use
 rename the csv file to in.csv
