@@ -81,7 +81,6 @@ void write_csv(std::vector<std::vector<std::string>>& ct,
 
         std::string frame = v.at(0).substr(v.at(0).size() - 7);
         std::ostringstream newTime;
-        std::cout << h << std::endl;
         newTime << h << ":" << m << ":" << s << frame;
         v.at(0) = newTime.str();
         std::cout << newTime.str() << std::endl;
