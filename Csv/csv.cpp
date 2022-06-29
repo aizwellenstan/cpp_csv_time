@@ -41,13 +41,56 @@ void write_csv(std::vector<std::vector<std::string>>& ct,
                const std::string& filename)
 {
   std::ofstream ofs(filename);
- 
+  int startTime;
+  int time;
+  int nhour,nmin,nsec;
   for (std::vector<std::string>& v : ct) {
     for (std::size_t i = 0; i < v.size(); i++) {
-      ofs << v.at(i);
-      
       // if col2 is zero skip row
       if (v.at(1) == "0") break;
+
+      if (i==0) {
+        int hour,min,sec;
+        std::stringstream sstrm;
+        sstrm << v.at(0);
+
+        sstrm >> hour;
+        sstrm.get(); // get colon
+        sstrm >> min;
+        sstrm.get(); // get colon
+        sstrm >> sec;
+        sstrm.get(); // get colon
+
+        // std::cout << hour << std::endl;
+        // std::cout << min << std::endl;
+        // std::cout << sec << std::endl
+
+        time = hour*60*60+min*60+sec;
+        if (startTime == 0) startTime = time;
+        sec = time - startTime;
+        int h, m, s;
+        
+        h = (sec/3600); 
+        
+        m = (sec -(3600*h))/60;
+        
+        s = (sec -(3600*h)-(m*60));
+        
+        // printf("H:M:S - %d:%d:%d\n",h,m,s);
+        // std::cout << startTime << std::endl;
+
+        std::string frame = v.at(0).substr(v.at(0).size() - 7);
+        std::ostringstream newTime;
+        newTime << h << ":" << m << ":" << s << frame;
+        v.at(0) = newTime.str();
+      }
+      
+
+      ofs << v.at(i);
+      // std::cout << v.at(0);
+
+      
+
       if (i < v.size() - 1) {
         ofs << ",";
       }
