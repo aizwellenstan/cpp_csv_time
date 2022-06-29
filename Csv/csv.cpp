@@ -41,7 +41,7 @@ void write_csv(std::vector<std::vector<std::string>>& ct,
                const std::string& filename)
 {
   std::ofstream ofs(filename);
-  int startTime;
+  int startTime = 0;
   int time;
   int nhour,nmin,nsec;
   for (std::vector<std::string>& v : ct) {
