@@ -49,7 +49,7 @@ void write_csv(std::vector<std::vector<std::string>>& ct,
       // if col2 is zero skip row
       if (v.at(1) == "0") break;
 
-      if (i==0) {
+      if (i==0 && v.at(0) != "Timecode") {
         int hour,min,sec;
         std::stringstream sstrm;
         sstrm << v.at(0);
@@ -81,8 +81,10 @@ void write_csv(std::vector<std::vector<std::string>>& ct,
 
         std::string frame = v.at(0).substr(v.at(0).size() - 7);
         std::ostringstream newTime;
+        std::cout << h << std::endl;
         newTime << h << ":" << m << ":" << s << frame;
         v.at(0) = newTime.str();
+        std::cout << newTime.str() << std::endl;
       }
       
 
